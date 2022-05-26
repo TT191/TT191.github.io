@@ -1,5 +1,4 @@
 /* global AFRAME, THREE */
-alert("wecome")
 AFRAME.registerComponent("gesture-handler", {
   schema: {
     enabled: { default: true },
