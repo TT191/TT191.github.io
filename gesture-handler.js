@@ -16,10 +16,12 @@ AFRAME.registerComponent("gesture-handler", {
     this.scaleFactor = 1;
 
     this.el.sceneEl.addEventListener("markerFound", (e) => {
+      document.getElementById("marker-overlay").hidden = true;
       this.isVisible = true;
     });
 
     this.el.sceneEl.addEventListener("markerLost", (e) => {
+      document.getElementById("marker-overlay").hidden = false;
       this.isVisible = false;
     });
   },
