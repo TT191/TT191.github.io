@@ -18,11 +18,13 @@ AFRAME.registerComponent("gesture-handler", {
     this.el.sceneEl.addEventListener("markerFound", (e) => {
       document.getElementById("marker-overlay").hidden = true;
       this.isVisible = true;
+      this.el.emit("showModel", null, false);
     });
 
     this.el.sceneEl.addEventListener("markerLost", (e) => {
       document.getElementById("marker-overlay").hidden = false;
       this.isVisible = false;
+      this.el.emit("hideModel", null, false);
     });
   },
 

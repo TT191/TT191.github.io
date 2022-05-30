@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <title>AR Demo</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <link rel="stylesheet" href="/style.css"/>
-    <script src="gesture-detector.js"></script>
-    <script src="gesture-handler.js"></script>
-    <script src="clicker.js"></script>
-  </head>
+    <head>
+        <title>AR Demo</title>
+        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <link rel="stylesheet" href="/style.css"/>
+        <script src="gesture-detector.js"></script>
+        <script src="gesture-handler.js"></script>
+        <script src="clicker.js"></script>
+    </head>
 
   <body style="display: flex; justify-content: center; align-items: center; background-color: black">
     <a-scene
@@ -18,23 +18,24 @@
       renderer="logarithmicDepthBuffer: true;"
       vr-mode-ui="enabled: false"
       gesture-detector
-      cursor="rayOrigin: mouse"
+      cursor="rayOrigin: mouse; fuseTimeout: 100000"
       id="scene"
     >
       <a-marker
         type="pattern" url="pattern/pattern-alchemist.patt"
         emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
       >
         <a-entity
           id="3d-model"
-          gltf-model="url(model/library.gltf)"
-          position="0 0 0"
+          gltf-model="url(model/hotel.gltf)"
           scale="1 1 1"
           class="clickable"
           gesture-handler
           clicker
+          material="transparent: true"
+          animation__position="property: position; from: 0 -5 0; to: 0 0 0; dur: 2000; easing: easeOutQuad; startEvents: showModel; pauseEvents: hideModel"
+          animation__rotation="property: rotation; from: 0 -540 0; to: 0 0 0; dur: 2000; easing: easeOutQuad; startEvents: showModel; pauseEvents: hideModel"
         >
         </a-entity>
       </a-marker>
