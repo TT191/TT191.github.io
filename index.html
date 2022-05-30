@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/style.css"/>
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
+    <script src="clicker.js"></script>
   </head>
 
-  <body style="display: flex; justify-content: center; align-items: center">
+  <body style="display: flex; justify-content: center; align-items: center; background-color: black">
     <a-scene
       arjs
       embedded
@@ -22,22 +23,25 @@
     >
       <a-marker
         type="pattern" url="pattern/pattern-alchemist.patt"
-        raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
       >
         <a-entity
           id="3d-model"
-          gltf-model="url(model/skyscraper.gltf)"
+          gltf-model="url(model/library.gltf)"
           position="0 0 0"
           scale="1 1 1"
           class="clickable"
           gesture-handler
+          clicker
         >
         </a-entity>
       </a-marker>
-      <a-entity camera></a-entity>
+      <a-entity id="rig">
+          <a-entity camera>
+          </a-entity>
+      </a-entity>
     </a-scene>
     <div id="marker-overlay" />
   </body>
